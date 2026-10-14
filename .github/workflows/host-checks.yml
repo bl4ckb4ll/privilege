@@ -1,0 +1,11 @@
+name: Host mathematics and ledger checks
+on:
+  push:
+  pull_request:
+jobs:
+  host-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check arithmetic and evidence ledger structure (not independent source validation)
+        run: sh tests/check.sh
